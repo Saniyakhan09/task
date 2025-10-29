@@ -9,19 +9,23 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 connecttodb();
-
 app.use(
   helmet({
     contentSecurityPolicy: {
+      useDefaults: false,
       directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'unsafe-inline'", 'https://task4-e2qw.onrender.com'],
-        styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
-        fontSrc: ["'self'", 'https://fonts.gstatic.com', 'data:'],
-        imgSrc: ["'self'", 'data:', 'https://task4-e2qw.onrender.com'],
-        connectSrc: ["'self'", 'https://task4-e2qw.onrender.com'],
+        "default-src": ["'self'"],
+        "script-src": ["'self'", "'unsafe-inline'", "https://task4-e2qw.onrender.com"],
+        "style-src": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        "font-src": ["'self'", "data:", "https://fonts.gstatic.com", "https://taskmanagement11-wpt5.onrender.com"],
+        "img-src": ["'self'", "data:", "https://task4-e2qw.onrender.com"],
+        "connect-src": ["'self'", "https://task4-e2qw.onrender.com"],
+        "object-src": ["'none'"],
+        "frame-ancestors": ["'self'"],
       },
     },
+    crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: false,
   })
 );
 
@@ -35,6 +39,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(express.static('public'));
+
 app.use(cookieParser());
 
 app.use('/auth', route);
