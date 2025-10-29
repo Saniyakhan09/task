@@ -53,5 +53,8 @@ app.use(cookieParser());
 
 app.use('/auth', route);
 app.use('/task', invoiceroute);
+app.get('/', (req, res) => {
+  res.send('Backend server is running successfully 🚀');
+});
 
 module.exports = app;
