@@ -10,7 +10,7 @@ const app = express();
 connecttodb();
 
 const corsOptions = {
-  origin: 'https://task4-e2qw.onrender.com',
+  origin: 'http://localhost:5173',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 };
