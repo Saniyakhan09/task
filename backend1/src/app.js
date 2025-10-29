@@ -14,21 +14,28 @@ app.use(
     contentSecurityPolicy: {
       useDefaults: false,
       directives: {
-        "default-src": ["'self'"],
-        "script-src": ["'self'", "'unsafe-inline'", "https://task4-e2qw.onrender.com"],
-        "style-src": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-        "font-src": ["'self'", "data:", "https://fonts.gstatic.com", "https://taskmanagement11-wpt5.onrender.com"],
-        "img-src": ["'self'", "data:", "https://task4-e2qw.onrender.com"],
-        "connect-src": ["'self'", "https://task4-e2qw.onrender.com"],
-        "object-src": ["'none'"],
-        "frame-ancestors": ["'self'"],
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "https://task4-e2qw.onrender.com"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        fontSrc: ["'self'", "data:", "https://fonts.gstatic.com", "https://taskmanagement11-wpt5.onrender.com"],
+        imgSrc: ["'self'", "data:", "https://task4-e2qw.onrender.com"],
+        connectSrc: ["'self'", "https://task4-e2qw.onrender.com"],
+        objectSrc: ["'none'"],
+        frameAncestors: ["'self'"],
       },
     },
+    crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+  })
+);
+app.use(
+  helmet({
     contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false,
     crossOriginResourcePolicy: { policy: "cross-origin" },
   })
 );
+
 
 ///
 const corsOptions = {
