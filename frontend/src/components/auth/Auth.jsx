@@ -27,13 +27,15 @@ const handleRegister= async(e)=>{
       password
     })
   })
-  const data= await res.json()
-  console.log(data);
   
   if(res.ok){
-  localStorage.setItem("token",data.token)
+      const data= await res.json()
+
+  localStorage.setItem("token",data.token);
   localStorage.setItem("adminId", data.admin._id);
   localStorage.setItem("admin",JSON.stringify(data.admin))
+
+
   setEmail("")
   setName("")
   setPassword("")
