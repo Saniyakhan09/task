@@ -15,7 +15,7 @@ const navigate = useNavigate();
 //register function
 const handleRegister= async(e)=>{
   e.preventDefault()
-  const res= await fetch("https://task4-e2qw.onrender.com/auth/register",{
+  const res= await fetch("http://localhost:3000/auth/register",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -49,7 +49,7 @@ const handleRegister= async(e)=>{
 
 const handleLogin= async(e)=>{
   e.preventDefault()
-  const res= await fetch("https://task4-e2qw.onrender.com/auth/login",{
+  const res= await fetch("http://localhost:3000/auth/login",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -77,9 +77,12 @@ const handleLogin= async(e)=>{
   return (
     < >
     <div className='   border-2 border-black bg-[#010101]  w-full h-screen flex flex-col justify-center items-center gap-6 '>
-           <h1>WELCOME TO WEBSITE {name}</h1>
+<h1 className='relative bg-gradient-to-b md:text-3xl from-[#1B1B1B] via-white bg-clip-text text-transparent md:mb-10 inline-block text-center after:content-[""] after:block after:w-3/4 after:h-[2px] after:mx-auto after:mt-2 after:bg-gradient-to-r after:from-[#1B1B1B] after:via-white after:to-[#1B1B1B]'>
+  Plan. Create. Achieve. All your tasks in one place
+</h1>
 
-  <form className='  items-center  bg-[#0F0F0F] border-amber-100 border-1 md:w-[25%] w-[80%] h-[60%] md:h-[75%] flex flex-col text-amber-50 justify-center  rounded-3xl' onSubmit={islogin ? handleLogin : handleRegister}>
+  <form className='items-center bg-[#0F0F0F] border border-white/40 md:w-[25%] w-[80%] h-[60%] md:h-[65%] flex flex-col text-amber-50 justify-center rounded-3xl shadow-lg shadow-amber-200/10 hover:shadow-amber-200/20 transition-all duration-300'
+ onSubmit={islogin ? handleLogin : handleRegister}>
 
     <div className='md:mb-4'>
  <h6 className='font-urbanist text-left ml-4  w-1/2'>Name</h6>

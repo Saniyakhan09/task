@@ -10,7 +10,7 @@ const Viewtasks = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await fetch(`https://task4-e2qw.onrender.com/task/tasks/${adminId}`, {
+        const res = await fetch(`http://localhost:3000/task/tasks/${adminId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -62,8 +62,8 @@ const Viewtasks = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-neutral-900 to-black text-white flex flex-col items-center py-12 px-4">
-      <h2 className="text-3xl font-bold mb-8 tracking-wide text-[#fff]">
-        Client Invoices
+      <h2 className="text-3xl uppercase from-[#1B1B1B] bg-gradient-to-b via-white bg-clip-text text-transparent font-bold mb-8 tracking-wide ">
+        All tasks
       </h2>
 
       
@@ -117,7 +117,7 @@ const Viewtasks = () => {
                   <button
                     onClick={() => handledelete(t._id)}
 
-                    className="md:ml-30 px-4 py-2 ml-2 text-white font-semibold transition"  
+                    className="md:ml-36 px-4 py-2 ml-2 text-white font-semibold transition"  
                   >
                     <img src="/public/icons8-delete3.svg" alt="Delete" className="w-96 h-6" />
                   </button>

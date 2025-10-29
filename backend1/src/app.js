@@ -10,25 +10,11 @@ const cookieParser = require('cookie-parser');
 const app = express();
 connecttodb();
 
-app.use(
-  helmet({
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        fontSrc: ["'self'", "data:", "https://taskmanagement11-wpt5.onrender.com"],
-        styleSrc: ["'self'", "'unsafe-inline'"],
-        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-        imgSrc: ["'self'", "data:"],
-        connectSrc: ["'self'", "*"],
-      },
-    },
-  })
-);
-app.use(express.static("public"));
+
 
 ///
 const corsOptions = {
-  origin: 'https://task4-e2qw.onrender.com',
+  origin: 'http://localhost:5173',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 };
@@ -36,14 +22,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use(express.static('public'));
 
 app.use(cookieParser());
 
 app.use('/auth', route);
 app.use('/task', invoiceroute);
-app.get('/', (req, res) => {
-  res.send('Backend server is running successfully 🚀');
-});
+
 
 module.exports = app;
