@@ -24,8 +24,9 @@ app.use(
         "frame-ancestors": ["'self'"],
       },
     },
+    contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false,
-    crossOriginResourcePolicy: false,
+    crossOriginResourcePolicy: { policy: "cross-origin" },
   })
 );
 
