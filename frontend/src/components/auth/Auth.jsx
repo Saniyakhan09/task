@@ -15,7 +15,7 @@ const navigate = useNavigate();
 //register function
 const handleRegister= async(e)=>{
   e.preventDefault()
-  const res= await fetch("http://localhost:3000/auth/register",{
+  const res= await fetch("https://taskmangementproject.onrender.com/auth/register",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -49,7 +49,7 @@ const handleRegister= async(e)=>{
 
 const handleLogin= async(e)=>{
   e.preventDefault()
-  const res= await fetch("http://localhost:3000/auth/login",{
+  const res= await fetch("https://taskmangementproject.onrender.com/auth/login",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"

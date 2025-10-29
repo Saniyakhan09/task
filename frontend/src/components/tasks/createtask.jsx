@@ -16,7 +16,7 @@ const createtasks = () => {
             content,
             status 
         });
-        const res = await fetch("http://localhost:3000/task/create", {
+        const res = await fetch("https://taskmangementproject.onrender.com/task/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
