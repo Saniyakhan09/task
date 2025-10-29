@@ -9,7 +9,7 @@ const Dashboard = () => {
 
       const hanglelogout = async () => {
         const token = localStorage.getItem("token");
-        const res = await fetch("https://task4-e2qw.onrender.com/auth/logout", {
+        const res = await fetch("https://taskmanagement11-wpt5.onrender.com/auth/logout", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -16,7 +16,7 @@ const createtasks = () => {
             content,
             status 
         });
-        const res = await fetch("https://task4-e2qw.onrender.com/task/create", {
+        const res = await fetch("https://taskmanagement11-wpt5.onrender.com/task/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

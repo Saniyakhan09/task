@@ -10,7 +10,7 @@ const app = express();
 connecttodb();
 
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: 'https://taskmanagement11-wpt5.onrender.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 };
