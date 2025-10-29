@@ -34,7 +34,7 @@ const Viewtasks = () => {
 
   const handledelete = async (taskId) => {
     try {
-      const res = await fetch(`http://localhost:3000/task/delete/${taskId}`, {  
+      const res = await fetch(`https://task4-e2qw.onrender.com/task/delete/${taskId}`, {  
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
