@@ -14,7 +14,8 @@ connecttodb();
 
 
 const corsOptions = {
-  origin: 'https://taskfrontend-f3z2.onrender.com',
+  origin: ['https://taskfrontend-f3z2.onrender.com',
+  'http://localhost:5173'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 };

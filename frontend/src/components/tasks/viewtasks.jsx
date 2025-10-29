@@ -119,7 +119,7 @@ const Viewtasks = () => {
 
                     className="md:ml-36 px-4 py-2 ml-2 text-white font-semibold transition"  
                   >
-                    <img src="/public/icons8-delete3.svg" alt="Delete" className="w-96 h-6" />
+                    <img src="/icons8-delete3.svg" alt="" className="w-96 h-6" />
                   </button>
                 </div>
               </motion.div>
