@@ -15,7 +15,7 @@ const navigate = useNavigate();
 //register function
 const handleRegister= async(e)=>{
   e.preventDefault()
-  const res= await fetch("https://taskmanagement11-wpt5.onrender.com/auth/register",{
+  const res= await fetch("https://task4-e2qw.onrender.com/auth/register",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -49,7 +49,7 @@ const handleRegister= async(e)=>{
 
 const handleLogin= async(e)=>{
   e.preventDefault()
-  const res= await fetch("https://taskmanagement11-wpt5.onrender.com/auth/login",{
+  const res= await fetch("https://task4-e2qw.onrender.com/auth/login",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"

@@ -10,7 +10,7 @@ const Viewtasks = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await fetch(`https://taskmanagement11-wpt5.onrender.com/task/tasks/${adminId}`, {
+        const res = await fetch(`https://task4-e2qw.onrender.com/task/tasks/${adminId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -34,7 +34,7 @@ const Viewtasks = () => {
 
   const handledelete = async (taskId) => {
     try {
-      const res = await fetch(`https://taskmanagement11-wpt5.onrender.com/task/delete/${taskId}`, {
+      const res = await fetch(`https://task4-e2qw.onrender.com/task/delete/${taskId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
