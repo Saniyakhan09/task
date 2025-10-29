@@ -19,7 +19,8 @@ app.use(
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         fontSrc: ["'self'", "data:", "https://fonts.gstatic.com", "https://taskmanagement11-wpt5.onrender.com"],
         imgSrc: ["'self'", "data:", "https://taskmanagement11-wpt5.onrender.com"],
-        connectSrc: ["'self'", "https://taskmanagement11-wpt5.onrender.com"],
+        connectSrc: ["'self'", "https://task4-e2qw.onrender.com", "https://taskmanagement11-wpt5.onrender.com"],
+
         objectSrc: ["'none'"],
         frameAncestors: ["'self'"],
       },
