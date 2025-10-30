@@ -25,6 +25,6 @@ const taskSchema = new mongoose.Schema({
     
 });
 
-const invoiceModel = mongoose.model('task',taskSchema)
+const taskModel = mongoose.model('task',taskSchema)
 
-module.exports =  invoiceModel;
+module.exports =  taskModel;

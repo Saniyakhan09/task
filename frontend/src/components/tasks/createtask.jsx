@@ -5,18 +5,28 @@ const createtasks = () => {
     const[name,setName] = useState("");
     const[content,setContent] = useState("");
     const[status,setStatus] = useState("pending");
-  const[submitStatus,setSubmitStatus] = useState("");
+    const[submitStatus,setSubmitStatus] = useState("");
 
     const handleSubmit = async (e) => {
-                e.preventDefault();
+        e.preventDefault();
+
         const token = localStorage.getItem("token");
         console.log("Token:", token);
+
+         if (!token) {
+         setSubmitStatus(" No token found. Please log in first.");
+         setTimeout(() => setSubmitStatus(""), 1500);
+      return;
+    }
+
         const requestBody = JSON.stringify({
             name,
             content,
             status 
         });
-        const res = await fetch("https://taskmangementproject.onrender.com/task/create", {
+
+        try{
+            const res = await fetch("https://taskmangementproject.onrender.com/task/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -25,19 +35,25 @@ const createtasks = () => {
             body: requestBody,
 
         });
-          
-        if (res.ok) {
+            if (res.ok) {
             const data = await res.json();
             console.log("Task created successfully:", data);
-                    setSubmitStatus("Form submitted successfully!");
-
+            setSubmitStatus("Form submitted successfully!");
+            setName("");
+            setContent("");
+            setStatus("pending");
            
         } else {
             console.error( res.statusText);
         }
+        }catch(err){
+            console.error("Error submitting form:", err);
+        }
+      
+      
         setTimeout(() => {
             setSubmitStatus("");
-        }, 1000);
+        }, 2000);
      
     }
 
@@ -54,8 +70,7 @@ const createtasks = () => {
         <input
           type="text"
           className="border-b-2 bg-[#0C0C0C] text-amber-50 
-                                border-[#1B1B1B]
-                                 
+                                border-[#1B1B1B]   
                                 transition duration-200
                                 placeholder-gray-500  w-full focus:outline-none "
           placeholder="Enter Task Name"
@@ -68,16 +83,15 @@ const createtasks = () => {
         <h6 className="mb-1">Content</h6>
         <input
           type="text"
-          className="border-b-2 w-full bg-[#0C0C0C] text-amber-50 
-                                 
-                                transition duration-200
-                                placeholder-gray-500 focus:outline-none border-[#1B1B1B]"
+          className="border-b-2 w-full bg-[#0C0C0C] text-amber-50  transition duration-200
+           placeholder-gray-500 focus:outline-none border-[#1B1B1B]"
           placeholder="Enter the Content"
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
       </div>
 
+     {/* task status */}
       <div>
         <h6 className="mb-1">Status</h6>
         <select
@@ -92,6 +106,7 @@ const createtasks = () => {
           <option value="completed">Completed</option>
         </select>
       </div>
+{/* submit button */}
 
       <button
         type="submit"
@@ -103,7 +118,8 @@ const createtasks = () => {
       >
         Submit 
       </button>
-    
+
+    {/* submit status */}
       {submitStatus && (
         <p className="text-center mt-2 text-amber-400 font-semibold">
           {submitStatus}
