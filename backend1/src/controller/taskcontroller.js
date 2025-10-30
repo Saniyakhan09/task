@@ -102,7 +102,7 @@ async function update(req,res){
     },{new:true})
     return res.status(200).json({
       message:"task updated successfully",
-      updatedtask
+      name,status,content,
     })
   }
   catch(err){

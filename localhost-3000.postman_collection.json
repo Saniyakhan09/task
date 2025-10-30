@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "8ee1b96b-e70a-43ef-9ffc-6c1f9602a8e0",
+		"name": "localhost:3000",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46399246",
+		"_collection_link": "https://saniya-5871297.postman.co/workspace/project1~48564f27-6b5f-4c91-93fc-234f0f626882/collection/46399246-8ee1b96b-e70a-43ef-9ffc-6c1f9602a8e0?action=share&source=collection_link&creator=46399246"
+	},
+	"item": [
+		{
+			"name": "/task/update/690311ec305ba3102c638149",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"task1\",\r\n  \"status\":\"pending\",\r\n  \"content\":\"debug\"\r\n\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/task/update/690311ec305ba3102c638149",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"update",
+						"690311ec305ba3102c638149"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/task/update/68f9188f227063daca796b35",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"task1\",\r\n  \"status\":\"pending\",\r\n  \"content\":\"debug\"\r\n\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/task/update/68f9188f227063daca796b35",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"update",
+						"68f9188f227063daca796b35"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/task/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/task/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"zainn\",\r\n    \"email\": \"zain@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/task/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"task000\",\r\n  \"status\":\"pending\",\r\n  \"content\":\"bug-solve\"\r\n\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/task/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"loii\",\r\n    \"email\": \"admin11@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
