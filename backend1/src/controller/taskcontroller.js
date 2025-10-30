@@ -7,16 +7,13 @@ async function create(req,res) {
  try{
    console.log("Body received:", req.body);
     console.log("Admin from token middleware:", req.admin);
+
+    
     const {name,content,status} = req.body;
       if (!req.admin || !req.admin.id) {
       return res.status(401).json({ message: "Admin ID missing from token" });
     }
-    const isexistask = await taskModel.findOne({name}) 
-    if(isexistask){
-      return res.status(400).json({
-        message:"task already exist"
-      })
-    }
+ 
  
         const adminIdFromToken = req.admin.id;
          const adminObjectId = new mongoose.Types.ObjectId(adminIdFromToken);
