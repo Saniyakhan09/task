@@ -4,7 +4,7 @@ const express = require('express');
 const connecttodb = require('../db/db');
 require('dotenv').config();
 const route = require('./router/authroute');
-const invoiceroute = require('./router/taskrouter');
+const taskroute = require('./router/taskrouter');
 const cookieParser = require('cookie-parser');
 
 const app = express();
@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use('/auth', route);
-app.use('/task', invoiceroute);
+app.use('/task', taskroute);
 
 
 module.exports = app;

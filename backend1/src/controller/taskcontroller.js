@@ -5,33 +5,33 @@ const mongoose = require('mongoose');
 async function create(req,res) {
 
  try{
-    const {name,amount,content,status} = req.body;
-    const isexistemploy = await taskModel.findOne({name}) 
-    if(isexistemploy){
+   console.log("Body received:", req.body);
+    console.log("Admin from token middleware:", req.admin);
+    const {name,content,status} = req.body;
+      if (!req.admin || !req.admin.id) {
+      return res.status(401).json({ message: "Admin ID missing from token" });
+    }
+    const isexistask = await taskModel.findOne({name}) 
+    if(isexistask){
       return res.status(400).json({
         message:"task already exist"
       })
     }
-    // --- Core Logic: Get and Convert Admin ID ---
-        // 1. Get the admin ID from the token (set by middleware)
+ 
         const adminIdFromToken = req.admin.id;
-
-        // 2. Convert the string ID to a Mongoose ObjectId for proper linking
-        const adminObjectId = new mongoose.Types.ObjectId(adminIdFromToken);
-   // const hash = await bcrypt.hash(password,10)
+         const adminObjectId = new mongoose.Types.ObjectId(adminIdFromToken);
 
     //hash password
     const task = await taskModel.create({
         name,
         content,
-        amount,
         status,
         admin:adminObjectId 
     })
 
     return res.status(201).json({
         message:"task created succesfully",
-        task
+        task,
     })
    }
    catch(err){
@@ -65,14 +65,12 @@ async function all(req,res){
 
 
 
-async function getAdminInvoices(req, res) {
+async function getAdmintasks(req, res) {
     try {
         const adminId = req.admin.id;
         
-        // 1. Convert the string ID from the JWT payload to a Mongoose ObjectId
         const objectId = new mongoose.Types.ObjectId(adminId);
 
-        // 2. FIX: Use 'admin' (the schema field) instead of 'invoices' 
         const tasks = await taskModel.find({ admin: objectId }); 
 
         if (!tasks || tasks.length === 0) {
@@ -118,7 +116,7 @@ async function update(req,res){
 }
 
 //delete invoice
-async function deleteinvoice(req,res){
+async function deletetasks(req,res){
   try{
     const {id} = req.params;    
     const deletetask = await taskModel.findByIdAndDelete({_id:id})
@@ -136,4 +134,4 @@ async function deleteinvoice(req,res){
 
 
 
-module.exports = {create,all,update,deleteinvoice, getAdminInvoices};
+module.exports = {create,all,update,deletetasks, getAdmintasks};

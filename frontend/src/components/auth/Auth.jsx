@@ -22,7 +22,6 @@ const handleRegister= async(e)=>{
     },
     body:JSON.stringify({
       name,
-      email,
       password
     })
   }) 
