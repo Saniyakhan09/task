@@ -3,11 +3,12 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Auth = () => {
-const[name,setName]=useState("")
-const[email,setEmail]=useState("")
-const[password,setPassword]=useState("") 
-const[islogin,setIslogin]=useState(true)
+const[name,setName]=useState("");
+const[email,setEmail]=useState("");
+const[password,setPassword]=useState("");
+const[islogin,setIslogin]=useState(true);
 const [message, setMessage] = useState("");
+const [loading, setLoading] = useState(false); 
 const navigate = useNavigate();
 
 
@@ -15,7 +16,9 @@ const navigate = useNavigate();
 //register function
 const handleRegister= async(e)=>{
   e.preventDefault()
-  const res= await fetch("https://taskmangementproject.onrender.com/auth/register",{
+
+try{
+    const res= await fetch("https://taskmangementproject.onrender.com/auth/register",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -29,20 +32,23 @@ const handleRegister= async(e)=>{
 
   
   if(res.ok){
-
   localStorage.setItem("token",data.token);
   localStorage.setItem("adminId", data.admin._id);
   localStorage.setItem("admin",JSON.stringify(data.admin))
-
-
   setEmail("")
   setName("")
   setPassword("")
   navigate('/dashboard')
   }
+
   else{
     setMessage( data.message);
   }
+  } catch (error) {
+      setMessage("Server is waking up, please wait...");
+    } finally {
+      setLoading(false);
+    }
 }
 
 
@@ -93,16 +99,19 @@ const handleLogin= async(e)=>{
       <div className='md:mb-4'>
      <h6 className='font-urbanist text-left ml-4 w-1/2'>Email</h6>
       <input type="email" className='bg-[#0F0F0F] p-2 border my-2 m-2 rounded-full' placeholder='Enter the email' value={email} onChange={(e) => setEmail(e.target.value)} />
-
-          </div>
+      </div>
      
-<div>
+      <div>
       <h6 className='font-urbanist text-left ml-4  w-1/2'>Password</h6>
       <input type="password" className='bg-[#0F0F0F]  p-2 border m-2 rounded-full    ' placeholder='Enter the password' value={password} onChange={(e) => setPassword(e.target.value)} />
-</div>
+      </div>
 
-      <button type="submit" className='bg-black py-1 px-6 top-4 my-6 md:rounded-full  rounded-3xl  border-amber-50 border-b-2  border-r-2 hover:bg-[#6F6F6F]'>submit</button>
+      <button type="submit" className={`bg-black py-1 px-6 top-4 my-6 md:rounded-full  rounded-3xl  border-amber-50 border-b-2  border-r-2 hover:bg-[#6F6F6F] ${
+            loading ? "bg-gray-600 cursor-not-allowed" : "bg-black hover:bg-[#6F6F6F]"}`}>
+          {loading ? "Loading..." : "Submit"}
+</button>
       <p onClick={() => setIslogin(!islogin)}>{islogin ? "Don't have an account? Register" : "Already have an account? Login"}</p>
+      
       {message && <p className="text-red-500 mt-2">{message}</p>}
     </form>
     </div>
