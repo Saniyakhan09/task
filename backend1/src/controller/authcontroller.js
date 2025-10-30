@@ -27,7 +27,7 @@ async function register(req,res) {
         password:hashpasword
     })  
 
-    const token = jwt.sign({id:createAdmin._id, email:createAdmin.email},process.env.Jwt_Secret)
+    const token = jwt.sign({id:createAdmin._id, name:createAdmin.name},process.env.Jwt_Secret)
 
     res.cookie('token',token,{
         httpOnly:true,

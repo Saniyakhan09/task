@@ -25,10 +25,11 @@ const handleRegister= async(e)=>{
       email,
       password
     })
-  })
+  }) 
+   const data= await res.json()
+
   
   if(res.ok){
-      const data= await res.json()
 
   localStorage.setItem("token",data.token);
   localStorage.setItem("adminId", data.admin._id);
